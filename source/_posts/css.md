@@ -909,11 +909,19 @@ CSS syntax:
 ```css {.wrap}
 .grid {
     display: grid;
-    grid-template-columns: 100px minmax(100px, 500px) 100px; 
+    grid-template-columns: 100px minmax(100px, 500px) 100px;
 }
 
 ```
 
+### col autoFill 
+```css 
+.container {
+    display: grid;
+    /*其中minmax(150px, 1fr)的含义是每一个列的宽度最小是150像素，最大是1fr，也就是等分宽度。*/
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+```
 
 ### grid-row-start & grid-row-end
 
@@ -935,6 +943,26 @@ grid-row-gap: length;
 ```
 Any legal length value, like px or %. 0 is the default value
 
+### Css grid-repeat
+```css
+repeat(4, 1fr)
+repeat(4, [col-start] 250px [col-end])
+repeat(4, [col-start] 60% [col-end])
+repeat(4, [col-start] 1fr [col-end])
+repeat(4, [col-start] min-content [col-end])
+repeat(4, [col-start] max-content [col-end])
+repeat(4, [col-start] auto [col-end])
+repeat(4, [col-start] minmax(100px, 1fr) [col-end])
+repeat(4, [col-start] fit-content(200px) [col-end])
+repeat(4, 10px [col-start] 30% [col-middle] auto [col-end])
+repeat(4, [col-start] min-content [col-middle] max-content [col-end])
+repeat(auto-fill, 250px)
+repeat(auto-fit, 250px)
+repeat(auto-fill, [col-start] 250px [col-end])
+repeat(auto-fit, [col-start] 250px [col-end])
+repeat(auto-fill, [col-start] minmax(100px, 1fr) [col-end])
+repeat(auto-fill, 10px [col-start] 30% [col-middle] 400px [col-end])
+```
 
 ### CSS grid-area
 
